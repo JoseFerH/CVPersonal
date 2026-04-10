@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Fernando Hurtarte - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #e9ecef; /* Fondo gris claro, más serio y profesional */
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .cv-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px; /* Bordes menos redondeados */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+        }
+
+        /* SIDEBAR IZQUIERDA */
+        .sidebar {
+            background: #2c3e50; /* Azul oscuro sobrio */
+            color: white;
+            padding: 40px 30px;
+            position: relative;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 3px solid #3498db; /* Azul profesional en lugar de naranja */
+            margin: 0 auto 20px;
+            background: #ecf0f1;
+
+            /*
+               INSTRUCCIONES PARA LA FOTO:
+               1. Guarda tu foto personal en la misma carpeta que este archivo (index.html).
+               2. Asegúrate de que el nombre del archivo de tu foto sea exactamente: foto-perfil.jpg
+               3. La imagen se cargará automáticamente gracias a la línea de abajo.
+            */
+            background-image: url('foto-perfil.jpg');
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7f8c8d;
+            font-size: 12px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .profile-photo:empty::before {
+            content: "FOTO\APERSONAL";
+            white-space: pre;
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .title {
+            font-size: 15px;
+            color: #bdc3c7;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            background: transparent;
+            color: #3498db;
+            padding: 0 0 8px 0;
+            border-bottom: 2px solid #3498db;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: left;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 13px;
+            color: #ecf0f1;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #3498db;
+            flex-shrink: 0;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-size: 13px;
+            margin-bottom: 5px;
+            color: #ecf0f1;
+        }
+
+        .skill-stars {
+            display: flex;
+            gap: 4px;
+        }
+
+        .star {
+            width: 10px;
+            height: 10px;
+            background: #475f77;
+            border-radius: 50%;
+        }
+
+        .star.filled {
+            background: #3498db;
+        }
+
+        .language-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .language-flag {
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            margin-right: 12px;
+            background: #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .language-info {
+            flex: 1;
+        }
+
+        .language-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: #ecf0f1;
+        }
+
+        .language-level {
+            font-size: 12px;
+            color: #bdc3c7;
+        }
+
+        .passion-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .passion-item-detailed {
+            display: flex;
+            align-items: center;
+            padding: 4px 0;
+        }
+
+        .passion-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .passion-text {
+            font-size: 13px;
+            color: #ecf0f1;
+            font-weight: 400;
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        .main-content {
+            padding: 50px 60px;
+            background: #ffffff;
+        }
+
+        .header {
+            text-align: left;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .main-name {
+            font-size: 42px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+
+        .main-title {
+            font-size: 20px;
+            color: #3498db;
+            font-weight: 400;
+        }
+
+        .content-section {
+            margin-bottom: 35px;
+        }
+
+        .content-section-title {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .section-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3498db;
+            font-size: 20px;
+        }
+
+        .experience-item, .education-item, .project-item {
+            margin-bottom: 25px;
+        }
+
+        .experience-item:last-child, .education-item:last-child, .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .job-title, .degree-title, .project-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .company, .institution {
+            font-size: 15px;
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .date-location {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4a5568;
+            text-align: justify;
+        }
+
+        .description ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .description li {
+            margin-bottom: 6px;
+        }
+
+        .summary-text {
+            font-size: 14.5px;
+            line-height: 1.7;
+            color: #4a5568;
+            text-align: justify;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .tech-item {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .cv-container {
+                grid-template-columns: 1fr;
+                margin: 0;
+            }
+
+            .sidebar {
+                padding: 40px 20px;
+            }
+
+            .main-content {
+                padding: 40px 25px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- SIDEBAR IZQUIERDA -->
+        <div class="sidebar">
+            <div class="profile-section">
+                <div class="profile-photo"></div>
+                <div class="name">JOSÉ FERNANDO</div>
+                <div class="title">HURTARTE LLAMAS</div>
+            </div>
+
+            <!-- CONTACTO -->
+            <div class="section">
+                <div class="section-title">Contacto</div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <span>+502 4771-1254</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <span>jhurtarte1@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <span>10 avenida, 37-30 zona 11, Balcones de las Charcas</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🌐</div>
+                    <span>YourWebsite.com</span>
+                </div>
+            </div>
+
+            <!-- HABILIDADES -->
+            <div class="section">
+                <div class="section-title">Habilidades</div>
+                <div class="skill-item">
+                    <div class="skill-name">Python</div>
+                    <div class="skill-stars">
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">SQL Avanzado</div>
+                    <div class="skill-stars">
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Flutter</div>
+                    <div class="skill-stars">
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">JavaScript</div>
+                    <div class="skill-stars">
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">React</div>
+                    <div class="skill-stars">
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Bases de Datos</div>
+                    <div class="skill-stars">
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star filled"></div>
+                        <div class="star"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IDIOMAS -->
+            <div class="section">
+                <div class="section-title">Idiomas</div>
+                <div class="language-item">
+                    <div class="language-flag">ES</div>
+                    <div class="language-info">
+                        <div class="language-name">Español</div>
+                        <div class="language-level">Nativo</div>
+                    </div>
+                </div>
+                <div class="language-item">
+                    <div class="language-flag">EN</div>
+                    <div class="language-info">
+                        <div class="language-name">Inglés</div>
+                        <div class="language-level">Básico</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASIONES -->
+            <div class="section">
+                <div class="section-title">Pasiones</div>
+                <div class="passion-list">
+                    <div class="passion-item-detailed">
+                        <div class="passion-icon">💻</div>
+                        <div class="passion-text">Programación</div>
+                    </div>
+                    <div class="passion-item-detailed">
+                        <div class="passion-icon">📱</div>
+                        <div class="passion-text">Creación de Apps</div>
+                    </div>
+                    <div class="passion-item-detailed">
+                        <div class="passion-icon">🎮</div>
+                        <div class="passion-text">Desarrollo de Videojuegos</div>
+                    </div>
+                    <div class="passion-item-detailed">
+                        <div class="passion-icon">⚡</div>
+                        <div class="passion-text">Innovación Tecnológica</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="main-content">
+            <!-- HEADER -->
+            <div class="header">
+                <div class="main-name">JOSÉ FERNANDO</div>
+                <div class="main-title">Programador / Técnico Informático</div>
+            </div>
+
+            <!-- RESUMEN -->
+            <div class="content-section">
+                <div class="content-section-title">
+                    <div class="section-icon">👤</div>
+                    Perfil Profesional
+                </div>
+                <div class="summary-text">
+                    Estudiante de Ingeniería en Sistemas con sólida experiencia en programación desde los 18 años. Especializado en desarrollo de aplicaciones con Python, Flutter y bases de datos SQL. Actualmente desempeñándome como Técnico Informático en Ferretería Petapa, donde aplico mis conocimientos en sistemas de gestión, bases de datos y soporte técnico. Apasionado por la tecnología y el aprendizaje continuo, busco oportunidades para crecer profesionalmente en un equipo dinámico donde pueda aportar mis habilidades técnicas y adquirir nueva experiencia laboral.
+                </div>
+            </div>
+
+            <!-- EXPERIENCIA -->
+            <div class="content-section">
+                <div class="content-section-title">
+                    <div class="section-icon">💼</div>
+                    Experiencia Laboral
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Técnico Informático</div>
+                    <div class="company">Ferretería Petapa</div>
+                    <div class="date-location">Octubre 2024 - Presente | Guatemala</div>
+                    <div class="description">
+                        <ul>
+                            <li>Desarrollo de soluciones en Python y Flutter para automatizar procesos empresariales</li>
+                            <li>Administración y mantenimiento de bases de datos SQL para control de inventario</li>
+                            <li>Generación de reportes automatizados y dashboards de análisis</li>
+                            <li>Soporte técnico y mantenimiento preventivo de equipos de cómputo</li>
+                            <li>Gestión de redes y sistemas para asegurar la continuidad operativa</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">Flutter</span>
+                            <span class="tech-item">SQL Server</span>
+                            <span class="tech-item">MySQL</span>
+                            <span class="tech-item">Redes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Producción de Publicidad</div>
+                    <div class="company">Molino Venecia S.A</div>
+                    <div class="date-location">Octubre 2020 - Diciembre 2020 | Guatemala</div>
+                    <div class="description">
+                        Empaque y producción de diversos productos promocionales para campañas publicitarias.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Electricista Auxiliar</div>
+                    <div class="company">Molino Venecia S.A</div>
+                    <div class="date-location">Octubre 2014 - Diciembre 2014 | Guatemala</div>
+                    <div class="description">
+                        Apoyo en tareas de mantenimiento preventivo y correctivo en instalaciones eléctricas industriales.
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTOS -->
+            <div class="content-section">
+                <div class="content-section-title">
+                    <div class="section-icon">🚀</div>
+                    Proyectos Personales
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">Sistema de Marcaje para Empresas (Control de Asistencia)</div>
+                    <div class="description">
+                        Implementación de un sistema en una página web diseñado para el control y registro de asistencia de empleados.
+                        <ul>
+                            <li><strong>Tecnologías utilizadas:</strong> JavaScript, HTML, CSS.</li>
+                            <li><strong>Funcionamiento:</strong> Cada trabajador cuenta con un código QR único. El sistema utiliza la cámara de un dispositivo móvil para escanear estos códigos QR de forma eficiente, verificando y registrando con precisión la hora de entrada de cada trabajador en tiempo real.</li>
+                        </ul>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-item">HTML</span>
+                        <span class="tech-item">CSS</span>
+                        <span class="tech-item">JavaScript</span>
+                        <span class="tech-item">Lector QR</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EDUCACIÓN -->
+            <div class="content-section">
+                <div class="content-section-title">
+                    <div class="section-icon">🎓</div>
+                    Educación
+                </div>
+
+                <div class="education-item">
+                    <div class="degree-title">Ingeniería en Ciencias y Sistemas</div>
+                    <div class="institution">Universidad San Carlos de Guatemala</div>
+                    <div class="date-location">2020 - Presente (8vo Semestre) | Guatemala</div>
+                    <div class="description">
+                        <strong>Especialización en:</strong>
+                        <ul>
+                            <li>SQL avanzado: Construcción de consultas complejas (joins, subconsultas, CTEs, funciones de ventana)</li>
+                            <li>Procedimientos almacenados y triggers: Desarrollo de lógica de negocio en base de datos</li>
+                            <li>Sistemas de gestión: SQL Server, MySQL, Oracle, PostgreSQL (básico)</li>
+                            <li>Documentación técnica: Manuales de usuario, guías de implementación, diagramas de arquitectura</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="degree-title">Bachillerato en Ciencias y Letras</div>
+                    <div class="institution">Centro Escolar el Roble</div>
+                    <div class="date-location">2018 - 2019 | Guatemala</div>
+                </div>
+            </div>
+
+            <!-- CERTIFICACIONES -->
+            <div class="content-section">
+                <div class="content-section-title">
+                    <div class="section-icon">📜</div>
+                    Certificaciones y Cursos
+                </div>
+
+                <div class="education-item">
+                    <div class="degree-title">Python Avanzado</div>
+                    <div class="institution">Certificación Profesional</div>
+                    <div class="date-location">2023</div>
+                    <div class="description">
+                        Programación orientada a objetos, frameworks web, APIs REST, y desarrollo de aplicaciones robustas.
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="degree-title">Manejo de Bases de Datos SQL</div>
+                    <div class="institution">Certificación Profesional</div>
+                    <div class="date-location">2022</div>
+                    <div class="description">
+                        Diseño de bases de datos, consultas complejas, optimización, stored procedures y administración de sistemas gestores de base de datos: <strong>SQL Server, MySQL, Oracle</strong>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
