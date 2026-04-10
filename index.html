@@ -70,10 +70,19 @@
             font-size: 12px;
             text-align: center;
             overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.5);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            z-index: 10;
+            position: relative;
         }
 
         .profile-photo:empty::before {
-            content: "";
+            content: "FOTO\APERSONAL";
             white-space: pre;
         }
 
@@ -95,6 +104,11 @@
 
         .section {
             margin-bottom: 35px;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: scale(1.03);
         }
 
         .section-title {
@@ -250,6 +264,15 @@
 
         .content-section {
             margin-bottom: 35px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .content-section:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: #f8fafc;
         }
 
         .content-section-title {
