@@ -82,7 +82,7 @@
         }
 
         .profile-photo:empty::before {
-            content: "";
+            content: "FOTO\APERSONAL";
             white-space: pre;
         }
 
@@ -382,6 +382,32 @@
             }
         }
 
+        .download-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .download-btn:hover {
+            background: #3498db;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
         @media print {
             body {
                 background: white;
@@ -392,10 +418,17 @@
                 box-shadow: none;
                 max-width: none;
             }
+
+            .download-btn {
+                display: none !important;
+            }
         }
     </style>
 </head>
 <body>
+    <button class="download-btn" onclick="window.print()">
+        📄 Descargar PDF
+    </button>
     <div class="cv-container">
         <!-- SIDEBAR IZQUIERDA -->
         <div class="sidebar">
